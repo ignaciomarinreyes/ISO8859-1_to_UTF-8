@@ -18,7 +18,7 @@ public class Main {
         System.out.println(example3);
         System.out.println(convertUTF8ToISO(example3));
         System.out.println("=========Example 4==========");
-        String example4="Oper";
+        String example4="OperaciÃ³n";
         System.out.println(example4);
         System.out.println(convertISO_to_UTF8_personal(example4));
         System.out.println("=========Example 5==========");
@@ -83,29 +83,29 @@ public class Main {
     }
 
     public static String convertISO_to_UTF8_personal(String strISO_8859_1) {
-        final StringBuilder stringBuilder = new StringBuilder();
+        String res = "";
         int i = 0;
         for (i = 0; i < strISO_8859_1.length() - 1; i++) {
             char ch = strISO_8859_1.charAt(i);
             char chNext = strISO_8859_1.charAt(i + 1);
             if (ch <= 127) {
-                stringBuilder.append(ch);
+                res += ch;
             } else if (ch == 194 && chNext >= 128 && chNext <= 191) {
-                stringBuilder.append(chNext);
+                res += chNext;
             } else if(ch == 195 && chNext >= 128 && chNext <= 191){
-                int res = chNext + 64;
-                stringBuilder.append((char) res);
+                int resNum = chNext + 64;
+                res += (char) resNum;
             } else if(ch == 194){
-                stringBuilder.append((char) 173);
+                res += (char) 173;
             } else if(ch == 195){
-                stringBuilder.append((char) 224);
+                res += (char) 224;
             }
         }
         char ch = strISO_8859_1.charAt(i);
         if (ch <= 127 ){
-            stringBuilder.append(ch);
+            res += ch;
         }
-        return stringBuilder.toString();
+        return res;
     }
 }
 
