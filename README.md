@@ -1,4 +1,4 @@
-Convert an string writing in ISO8859-1 to UTF-8, and and vice versa. I use the constructor of class String and a personal method.
+Convert an string writing in ISO8859-1 to UTF-8, and vice versa. I use the constructor of class String and a personal method.
 
 Example 1:
 
